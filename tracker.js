@@ -1,5 +1,10 @@
-var itemTrackedModule = require('./ItemTracked');
-var ItemTracked = itemTrackedModule.ItemTracked;
+function requireUncached(module) {
+  delete require.cache[require.resolve(module)];
+  return require(module);
+}
+
+//var itemTrackedModule = require('./ItemTracked');
+var ItemTracked = requireUncached(./ItemTracked).ItemTracked; //itemTrackedModule.ItemTracked;
 var kdTree = require('./lib/kdTree-min.js').kdTree;
 var isEqual = require('lodash.isequal')
 var iouAreas = require('./utils').iouAreas
@@ -230,11 +235,11 @@ exports.updateTrackedItemsWithNewFrame = function(detectionsOfThisFrame, frameNb
   }
 }
 
-exports.reset = function() {
+/*exports.reset = function() {
   mapOfItemsTracked = new Map();
   mapOfAllItemsTracked = new Map();
   itemTrackedModule.reset();
-}
+}*/
 
 exports.setParams = function(newParams) {
   Object.keys(newParams).forEach((key) => {
