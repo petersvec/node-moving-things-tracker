@@ -4,7 +4,7 @@ function requireUncached(module) {
 }
 
 //var itemTrackedModule = require('./ItemTracked');
-var ItemTracked = requireUncached(./ItemTracked).ItemTracked; //itemTrackedModule.ItemTracked;
+var ItemTracked = requireUncached('./ItemTracked').ItemTracked; //itemTrackedModule.ItemTracked;
 var kdTree = require('./lib/kdTree-min.js').kdTree;
 var isEqual = require('lodash.isequal')
 var iouAreas = require('./utils').iouAreas
