@@ -1,4 +1,4 @@
-const itemTrackedModule = require('./ItemTracked');
+var itemTrackedModule = require('./ItemTracked');
 var ItemTracked = itemTrackedModule.ItemTracked;
 var kdTree = require('./lib/kdTree-min.js').kdTree;
 var isEqual = require('lodash.isequal')
