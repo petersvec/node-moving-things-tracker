@@ -1,4 +1,9 @@
-var uuidv4 = require('uuid/v4');
+function requireUncached(module) {
+  delete require.cache[require.resolve(module)];
+  return require(module);
+}
+
+var uuidv4 = requireUncached('uuid/v4');
 var computeBearingIn360 = require('./utils').computeBearingIn360
 var computeVelocityVector = require('./utils').computeVelocityVector
 
